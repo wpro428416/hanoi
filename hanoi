@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+static int i=0;
+int main(){
+    void dmove(int ,char ,char ,char );
+    int n = 0;
+    cin>>n;
+    dmove(n,'a','b','c');//最后要从a到c，即最后第n个盘子的目的是从a到c，则前面的盘子的目的是从a到b，之后又从b到c，如此往上推
+return 0;
+}
+void dmove(int n,char a,char b,char c){
+    if (n>1) {
+        /*
+        //if (('a'==a)&&('c'==c)){dmove(n-1,'a','b');cout<<++i<<":"<<"移动第"<<n<<"个盘子从"<<a<<"到"<<c<<endl;dmove(n-1,'b','c');}
+        //if (('a'==a)&&('b'==c)){dmove(n-1,'a','c');cout<<++i<<":"<<"移动第"<<n<<"个盘子从"<<a<<"到"<<c<<endl;dmove(n-1,'c','b');}
+        //if (('b'==a)&&('c'==c)){dmove(n-1,'b','a');cout<<++i<<":"<<"移动第"<<n<<"个盘子从"<<a<<"到"<<c<<endl;dmove(n-1,'a','c');}
+        //if (('c'==a)&&('a'==c)){dmove(n-1,'c','b');cout<<++i<<":"<<"移动第"<<n<<"个盘子从"<<a<<"到"<<c<<endl;dmove(n-1,'b','a');}
+        //if (('c'==a)&&('b'==c)){dmove(n-1,'c','a');cout<<++i<<":"<<"移动第"<<n<<"个盘子从"<<a<<"到"<<c<<endl;dmove(n-1,'a','b');}
+        //if (('b'==a)&&('a'==c)){dmove(n-1,'b','c');cout<<++i<<":"<<"移动第"<<n<<"个盘子从"<<a<<"到"<<c<<endl;dmove(n-1,'c','a');}
+        */
+        dmove(n-1,a,c,b);
+        cout<<++i<<":"<<"移动第"<<n<<"个盘子从"<<a<<"到"<<c<<endl;
+        dmove(n-1,b,a,c);
+
+    }
+if (n==1) {cout<<++i<<":"<<"移动第"<<n<<"个盘子从"<<a<<"到"<<c<<endl;}
+}
